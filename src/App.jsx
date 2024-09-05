@@ -20,6 +20,25 @@ function App() {
     }
   }
   
+  let temp;
+  let description;
+  let feelsLike;
+  let humidity;
+  let windSpeed;
+
+  if (data.main) {
+    temp = <h1>{Math.round(data.main.temp)}°C</h1>;
+    feelsLike = <p className="bold">{Math.round(data.main.feels_like)}°C</p>;
+    humidity = <p className="bold">{data.main.humidity}%</p>;
+  }
+
+  if (data.weather) {
+    description = <p>{data.weather[0].description}</p>;
+  }
+
+  if (data.wind) {
+    windSpeed = <p className="bold">{data.wind.speed} km/h</p>;
+  }
 
   return (
     <div className="app">
@@ -34,26 +53,26 @@ function App() {
       <div className="container">
         <div className="top">
           <div className="location">
-            <p>Toronto</p>
+            <p>{data.name}</p>
           </div>
           <div className="temp">
-            <h1>20°C</h1>
+            {temp}
           </div>
           <div className="description">
-            <p>Clouds</p>
+            {description}
           </div>
           <div className="bottom">
             <div className="feels">
-              <p className='bold'>23°C</p>
+              {feelsLike}
               <p>Feels Like</p>
             </div>
             <div className="humidity">
-              <p className='bold'>20%</p>
+              {humidity}
               <p>Humidity</p>
             </div>
             <div className="wind">
-              <p className='bold'>12 km/h</p>
-              <>Wind Speed</>
+              {windSpeed}
+              <p>Wind Speed</p>
             </div>
           </div>
         </div>

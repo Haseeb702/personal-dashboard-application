@@ -1,6 +1,8 @@
 import axios from 'axios'
 import express from 'express'
 import cors from 'cors'
+import dotenv from 'dotenv';
+dotenv.config();
 
 const app = express()
 const port = 5001
@@ -8,7 +10,7 @@ const port = 5001
 app.use(cors())
 app.use(express.json())
 
-const api_key = '1b8320e7f079339b724b9a69c95ae273'
+const api_key = process.env.WEATHER_API_KEY;
 
 app.get('/weather', async(req, res) => {
     const {location} = req.query

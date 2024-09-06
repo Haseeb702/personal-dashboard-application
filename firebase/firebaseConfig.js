@@ -1,10 +1,12 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
+import dotenv from 'dotenv';
+dotenv.config();
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyCHcau2hu0KlVVBCD3FwCffyNL_2lf6VOw",
+  apiKey: process.env.FIREBASE_API_KEY,
   authDomain: "personal-dashboard-appli-b5862.firebaseapp.com",
   projectId: "personal-dashboard-appli-b5862",
   storageBucket: "personal-dashboard-appli-b5862.appspot.com",
